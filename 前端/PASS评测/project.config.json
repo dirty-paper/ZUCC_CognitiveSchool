@@ -12,7 +12,7 @@
     "minified": true,
     "newFeature": false,
     "coverView": true,
-    "nodeModules": true,
+    "nodeModules": false,
     "autoAudits": false,
     "showShadowRootInWxmlPanel": true,
     "scopeDataCheck": false,
@@ -40,8 +40,8 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.14.0",
-  "appid": "wx3fa177f1b7f965d7",
-  "projectname": "PASS%E8%AF%84%E6%B5%8B",
+  "appid": "wx4cf7c8e3a5fb8d47",
+  "projectname": "Rg",
   "debugOptions": {
     "hidedInDevtools": []
   },

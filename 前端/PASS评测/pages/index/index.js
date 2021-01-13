@@ -1,3 +1,5 @@
+//index.js
+//获取应用实例
 const app = getApp()
 
 Page({
@@ -12,6 +14,30 @@ Page({
     wx.navigateTo({
       url: '../logs/logs'
     })
+  },
+  jumpg3:function(){
+    if(this.showDialog())
+    wx.navigateTo({
+      url: '../pick_num/pick_num'
+    });
+  },
+  jumpg4:function(){
+    if(this.showDialog())
+    wx.navigateTo({
+      url: '../Color_Block_sort/Color_Block_sort'
+    });
+  },
+  jumpg1:function(){
+    if(this.showDialog())
+    wx.navigateTo({
+      url: '../Schulte_Grid/Schulte_Grid'
+    });
+  },
+  jumpg2:function(){
+    if(this.showDialog())
+    wx.navigateTo({
+      url: '../Matching_Game/Matching_Game'
+    });
   },
   onLoad: function () {
     if (app.globalData.userInfo) {
@@ -44,10 +70,36 @@ Page({
   getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
-    console.log(this.data.userInfo)
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }
+  },
+  showDialog:function(){
+     var that=this;
+      if(app.globalData.userInfo==null)
+      {
+        console.log(app.globalData.userInfo),
+        wx.showModal({
+                title: '您还没有登录哦！',
+                content: '登录后才能记录成绩，先去登陆吧！',
+                confirmText: '去登录',
+                showCancel: false,
+                
+                success: function (res) {
+                  if (res.confirm) {
+                    //console.log('用户点击确定');
+                    wx.switchTab({
+                      url: '../mine/mine'
+                    })
+                  }
+              }});
+        return false;
+      }
+      else
+      {
+        return true;
+      }
+    }
+   
 })

@@ -1,11 +1,36 @@
 //app.js
 App({
+  
   onLaunch: function () {
+    var that=this
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
+    wx.getStorage({
+      key: 'zhuyi',
+      success(res){
+        that.globalData.zhuyi = res.data
+      }
+    })
+    wx.getStorage({
+      key: 'jishi',
+      success(res){
+        that.globalData.jishi = res.data
+      }
+    })
+    wx.getStorage({
+      key: 'jihua',
+      success(res){
+        that.globalData.jihua = res.data
+      }
+    })
+    wx.getStorage({
+      key: 'tongshi',
+      success(res){
+        that.globalData.tongshi = res.data
+      }
+    })
     // 登录
     wx.login({
       success: res => {
@@ -34,6 +59,11 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    tongshi:0,
+    jishi:0,
+    jihua:0,
+    zhuyi:0,
+    Schulte_Grid_Time:0
   }
 })
